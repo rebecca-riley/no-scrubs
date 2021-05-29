@@ -2,14 +2,14 @@
 no-scrubs is an application which scrubs track metadata from Spotify playlists and liked songs and outputs it in csv format.
 
 ## Introduction
-Welcome to **No Scrubs**!  As a DJ for [KUCI Irvine](kuci.org), spend a lot of time with my music collection.  I keep all my tracks in a spreadsheet so I can sort by genre, artist, release date, popularity, and label to streamline bringing you "the best mix of mellow, upbeat, and underground music on public radio."™  Manually inputting information for each track was incredibly tedious, so I decided to automate the process with a script to "scrub" my Spotify music library for metadata.  Thus, **No Scrubs** was born.
+Welcome to **No Scrubs**!  As a DJ for [KUCI Irvine](https://kuci.org), spend a lot of time with my music collection.  I keep all my tracks in a spreadsheet so I can sort by genre, artist, release date, popularity, and label to streamline bringing you "the best mix of mellow, upbeat, and underground music on public radio."™  Manually inputting information for each track was incredibly tedious, so I decided to automate the process with a script to "scrub" my Spotify music library for metadata.  Thus, **No Scrubs** was born.
 
 I hope other DJs and music lovers alike will benefit from the ability to compile information and metrics from their music libraries, whether to share their music with the world, work with and see trends in large collections, or simply to better understand their own tastes.  I am happy to receive comments, feedback, and requests for future features.  Please shoot me an email at rebecca.riley@uci.edu to get in touch.
 
 Long live independent music!  
 _**Rebecca Riley**_  
-Host of [_The Rebelution_](facebook.com/rebelutionradio) at [WRVU Nashville](https://wrvu.org/) and [_Violet Freedom_](violetfreedom.kuci.org/) at [KUCI Irvine](kuci.org)  
-[facebook.com/rebelutionradio](facebook.com/rebelutionradio)
+Host of [_The Rebelution_](https://facebook.com/rebelutionradio) at [WRVU Nashville](https://wrvu.org/) and [_Violet Freedom_](https://violetfreedom.kuci.org/) at [KUCI Irvine](https://kuci.org)  
+[facebook.com/rebelutionradio](https://facebook.com/rebelutionradio)
 
 ## Installation
 To install **No Scrubs**, you will need:
