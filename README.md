@@ -39,3 +39,18 @@ The [Python website](https://www.python.org/downloads/) is your source for Pytho
 
 #### 4. the passphrase
 In order for Spotify to authorize you to use **No Scrubs**, you need a passphrase which I must generate.  To get the passphrase, please send me (rebecca.riley@uci.edu) an email with the subject line 'passphrase' and I'll send it to you.
+
+## Usage
+Mostly self-driven... but I'll add more notes later!
+
+## Features
+KUCI DJs, did you know **No Scrubs** suggests whether a song in your library is A-play, B-play, or grey area?  More details on this and other features coming soon. :)
+
+## Future additions
+- [ ] Genre metadata  
+The vast majority of songs on Spotify do not have a published genre.  It's obvious from their annual "Wrapped" feature that Spotify does collect this infomation, but for whatever reason they've decided to keep it inaccessible via their API.[* ](#ftnt1)  I have a fancy idea to someday incorporate the genre data from one of my favorite websites ever, [Every Noise at Once](https://everynoise.com/), but no immediate implementation plans.  If someone would like to fork and attempt this, feel free.
+
+- [ ] Fixing color commands for Windows terminals  
+no-scrubs.py contains commands to color some output text in Unix shells for readability.  This is output as gibberish in Windows terminals.  The program is still perfectly functional, but readability suffers.
+
+<a name="ftnt1">*</a> Genre is an "available" piece of metadata for tracks, but it always comes back blank.  This is a known bug of the Spotify API which its developers have declined to fix.
