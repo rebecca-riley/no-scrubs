@@ -9,7 +9,7 @@ I hope other DJs and music lovers alike will benefit from the ability to compile
 Long live independent music!  
 _**Rebecca Riley**_  
 Host of [_The Rebelution_](facebook.com/rebelutionradio) at [WRVU Nashville](https://wrvu.org/) and [_Violet Freedom_](violetfreedom.kuci.org/) at [KUCI Irvine](kuci.org)  
-facebook.com/rebelutionradio
+[facebook.com/rebelutionradio](facebook.com/rebelutionradio)
 
 ## Installation
 To install **No Scrubs**, you will need:
@@ -26,16 +26,16 @@ At the top of [this page](https://github.com/rebecca-riley/no-scrubs), you shoul
 #### 2. a Python installation
 The [Python website](https://www.python.org/downloads/) is your source for Python installers and binaries.
 
-**Mac/Linux:** Modern Macs and most popular Linux distributions come with Python preinstalled.  To see if Python is installed on your machine, open your terminal and type `python --version`.  If Python is installed, this will return the Python version you are running.  If you do not have Python natively, installers are available on python.org.
+**Mac/Linux:** Modern Macs and most popular Linux distributions come with Python preinstalled.  To see if Python is installed on your machine, open your terminal and type `python --version`.  If Python is installed, this will return the Python version you are running.  If you do not have Python natively, installers are available on [python.org](https://www.python.org/downloads/).
 
-**Windows:** If you are on a new version of Windows (updated since May 2019), you can download Python directly from the Microsoft Store.  This is the best installation option as it simplifies the next step.  If you have an older version of Windows, download and run a Windows installer from python.org.
+**Windows:** If you are on a new version of Windows (updated since May 2019), you can download Python directly from the Microsoft Store.  This is the best installation option as it simplifies the next step.  If you have an older version of Windows, download and run a Windows installer from [python.org](https://www.python.org/downloads/).
 
 #### 3. a Spotipy installation
 [Spotipy](https://spotipy.readthedocs.io/) is a Python library that allows **No Scrubs** to collect and sift through metadata from your Spotify library.
 
 **Mac/Linux:** In your terminal, type `pip install spotipy`.
 
-**Windows:** If you installed Python through the Microsoft Store, open a terminal window and type `pip install spotipy`.  If you installed Python with an installer from python.org, type `py -m pip install spotipy` instead.
+**Windows:** If you installed Python through the Microsoft Store, open a terminal window and type `pip install spotipy`.  If you installed Python with an installer from [python.org](https://www.python.org/downloads/), type `py -m pip install spotipy` instead.
 
 #### 4. the passphrase
 In order for Spotify to authorize you to use **No Scrubs**, you need a passphrase which I must generate.  To get the passphrase, please send me (rebecca.riley@uci.edu) an email with the subject line 'passphrase' and I'll send it to you.
