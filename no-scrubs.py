@@ -118,7 +118,7 @@ def KUCI_recommendation(track_popularity,artist_popularity):
 # outputs data in tsv format for a playlist or list of liked songs
 def process_list(playlist_or_liked_songs,list_name,spotify,cutoff_date,new_songs_only):
     # start tsv
-    outfile = open(formatted_filename(list_name) + '.tsv','w')
+    outfile = open(formatted_filename(list_name) + '.tsv','w', encoding='utf-8')
     write_out_header(outfile)
 
     total_songs = playlist_or_liked_songs['total']
@@ -445,6 +445,11 @@ def main():
     print('Hope to see you back soon!  Remember, you can use the cutoff date feature')
     print('to aggregate only recently added tracks to continue growing your collection')
     print('in the future.  Ciao!  -RR')
+
+    # keep windows terminal alive while running
+    if platform.system() == 'Windows':
+        print()
+        input('Press any key to exit.')
 
 
 if __name__ == '__main__':
