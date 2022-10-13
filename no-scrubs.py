@@ -384,7 +384,7 @@ def main():
                 # search playlist for track added since cutoff date
                 for track in pylst['tracks']['items']:
                     if add_date(track['added_at']) > cutoff_date:
-                        no_songs_after_cutoff_date = False;
+                        no_songs_after_cutoff_date = False
 
                 if no_songs_after_cutoff_date:
                     print(color(('...Skipping ' + playlist['name'] +
