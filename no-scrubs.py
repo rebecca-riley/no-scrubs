@@ -9,6 +9,7 @@ import datetime
 import re
 import spotipy
 import spotipy.util
+import platform
 
 LOCAL_ZULU_OFFSET = -8  # represents PST (Los Angeles, CA time)
 GREEN   = 32            # terminal color codes
@@ -56,8 +57,12 @@ def formatted_filename(unformatted_filename):
 
 
 # returns strings that will print to terminal in specified color
+# @todo: get colored output in Windows working
 def color(string,colour):
-    return '\033[' + str(colour) + 'm' + string + '\033[0m'
+    if platform.system() == 'Windows':
+        return string
+    else:
+        return '\033[' + str(colour) + 'm' + string + '\033[0m'
 
 
 # prints songs for which data will be output in a consistent format
