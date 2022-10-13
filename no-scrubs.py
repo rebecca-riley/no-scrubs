@@ -1,5 +1,5 @@
 # No Scrubs: a command-line interface to scrub Spotify metadata from user libraries
-#            and consolidate it into csv format
+#            and consolidate it into tsv format
 # author: Rebecca Riley
 # contact: rebecca.riley@uci.edu
 # date: March 24 2020
@@ -89,6 +89,14 @@ def chain_multiple(list_of_objects):
         chain += ', ' + list_of_objects[i]['name']
     return chain
 
+# combine with chain_multiple
+def chain_multiple_plain(list_of_objects):
+    chain = ''
+    chain += list_of_objects[0] if len(list_of_objects) != 0 else ''
+    for i in range(1,len(list_of_objects)):
+        chain += ', ' + list_of_objects[i]
+    return chain
+
 
 # recommends A-play, B-play, or grey status for songs based on popularity
 def KUCI_recommendation(track_popularity,artist_popularity):
@@ -102,10 +110,10 @@ def KUCI_recommendation(track_popularity,artist_popularity):
 
 #### PROCESSING FUNCTIONS ####
 
-# outputs data in csv format for a playlist or list of liked songs
+# outputs data in tsv format for a playlist or list of liked songs
 def process_list(playlist_or_liked_songs,list_name,spotify,cutoff_date,new_songs_only):
-    # start csv
-    outfile = open(formatted_filename(list_name) + '.csv','w')
+    # start tsv
+    outfile = open(formatted_filename(list_name) + '.tsv','w')
     write_out_header(outfile)
 
     total_songs = playlist_or_liked_songs['total']
@@ -137,13 +145,14 @@ def process_list(playlist_or_liked_songs,list_name,spotify,cutoff_date,new_songs
             # otherwise, process song
             track = saved_track['track']
             album = spotify.album(track['album']['id'])
+            artist = spotify.artist(track['artists'][0]['id'])
 
             # output processing message to terminal
             print_processing(current_song,total_songs,
                              chain_multiple(track['artists']),track['name'])
 
             # write Spotify metadata to outfile
-            write_out_KUCI_info(outfile,track,album)
+            write_out_KUCI_info(outfile,track,album,artist)
             write_out_popularity_info(outfile,track,
                                 spotify.artist(track['artists'][0]['id'])['popularity'])
             write_out_other_info(outfile,track,album,saved_track)
@@ -156,7 +165,7 @@ def process_list(playlist_or_liked_songs,list_name,spotify,cutoff_date,new_songs
             playlist_or_liked_songs = spotify.next(playlist_or_liked_songs)
 
     outfile.close()
-    print('Song info successfully written to ' + formatted_filename(list_name) + '.csv.')
+    print('Song info successfully written to ' + formatted_filename(list_name) + '.tsv.')
     print()
 
 
@@ -172,7 +181,7 @@ def write_out_header(outfile):
 
 
 # write artist, track, album, label, and genre to outfile
-def write_out_KUCI_info(outfile,track,album):
+def write_out_KUCI_info(outfile,track,album,artist):
     # track
     outfile.write(chain_multiple(track['artists']) + '\t' + track['name'] + '\t')
 
@@ -188,10 +197,11 @@ def write_out_KUCI_info(outfile,track,album):
     # label
     outfile.write(((album['label'] or "") if album['label'] != track['artists'][0]['name']
                                   else 'Self-released') + '\t')
-
     # genre
     # @todo: incorporate genres, possibly from everynoise.com?
-    outfile.write('\t')
+    # combine artist genres
+    # outfile.write('\t')
+    outfile.write(chain_multiple_plain(artist['genres']) + '\t')
 
 
 # write KUCI recommended status, track popularity, and artist popularity to outfile
@@ -239,7 +249,7 @@ def write_out_audio_features(outfile,audio_feature):
 
 def main():
     # introductory info: purpose of program and contact info
-    print('Welcome to No Scrubs!  This program will output a csv file containing all the ')
+    print('Welcome to No Scrubs!  This program will output a tsv file containing all the ')
     print('info we\'re required to submit in our playlists (artist - track - album - label')
     print('- genre), plus some other metadata to help you keep your library organized')
     print('(e.g. add date, OPI info, a preview link, track and artist popularity, and')
