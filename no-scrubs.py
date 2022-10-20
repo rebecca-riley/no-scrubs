@@ -5,6 +5,7 @@
 # date: March 24 2020
 
 import sys
+import os
 import datetime
 import re
 import spotipy
@@ -118,7 +119,12 @@ def KUCI_recommendation(track_popularity,artist_popularity):
 # outputs data in tsv format for a playlist or list of liked songs
 def process_list(playlist_or_liked_songs,list_name,spotify,cutoff_date,new_songs_only):
     # start tsv
-    outfile = open(formatted_filename(list_name) + '.tsv','w', encoding='utf-8')
+    if platform.system() == 'Windows': # see spotipy issue #870 on github
+        outfile = open(str(os.path.dirname(os.path.abspath(__file__))) + '\\' +
+                           formatted_filename(list_name) + '.tsv','w',
+                           encoding='utf-8')
+    else:
+        outfile = open(formatted_filename(list_name) + '.tsv','w')
     write_out_header(outfile)
 
     total_songs = playlist_or_liked_songs['total']
@@ -309,10 +315,18 @@ def main():
     print('>> Contacting Spotify >>')
 
     try:
+        # specify cache_path for Windows -- see spotipy issue #870 on github
+        if platform.system() == 'Windows':
+            cache = str(os.path.dirname(os.path.abspath(__file__))) + '\\' +
+                        '.cache-' + username
+        else:
+            cache = '.cache-' + username
+
         token = spotipy.util.prompt_for_user_token(username,scope,
         client_id='b7fc438dd1494d998c4eacfc3a78e0c4',
         client_secret=secret,
-        redirect_uri='http://localhost:8888/callback')
+        redirect_uri='http://localhost:8888/callback',
+        cache_path=cache)
     except: # catches all 'bad request' errors from spotify
         print(color('Incorrect username or passphrase.  Please check your spelling ' +
                     'and try again.',LTRED))
