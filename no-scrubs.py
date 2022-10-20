@@ -4,7 +4,7 @@
 #            and consolidate it into tsv format
 # author: Rebecca Riley
 # contact: rebecca.riley@uci.edu
-# date: March 24 2020
+# date: October 19 2022
 
 import sys
 import os
@@ -93,7 +93,7 @@ def chain_multiple(list_of_objects):
         chain += ', ' + list_of_objects[i]['name']
     return chain
 
-# combine with chain_multiple
+# @todo: combine with chain_multiple
 def chain_multiple_plain(list_of_objects):
     chain = ''
     chain += list_of_objects[0] if len(list_of_objects) != 0 else ''
@@ -103,6 +103,7 @@ def chain_multiple_plain(list_of_objects):
 
 
 # recommends A-play, B-play, or grey status for songs based on popularity
+# @todo: reassess popularity benchmarks
 def KUCI_recommendation(track_popularity,artist_popularity):
     if artist_popularity > 68 or track_popularity > 60:
         return 'B'
@@ -207,9 +208,6 @@ def write_out_KUCI_info(outfile,track,album,artist):
     outfile.write(((album['label'] or "") if album['label'] != track['artists'][0]['name']
                                   else 'Self-released') + '\t')
     # genre
-    # @todo: incorporate genres, possibly from everynoise.com?
-    # combine artist genres
-    # outfile.write('\t')
     outfile.write(chain_multiple_plain(artist['genres']) + '\t')
 
 
