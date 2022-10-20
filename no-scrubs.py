@@ -60,12 +60,8 @@ def formatted_filename(unformatted_filename):
 
 
 # returns strings that will print to terminal in specified color
-# @todo: get colored output in Windows working
 def color(string,colour):
-    if platform.system() == 'Windows':
-        return string
-    else:
-        return '\033[' + str(colour) + 'm' + string + '\033[0m'
+    return '\033[' + str(colour) + 'm' + string + '\033[0m'
 
 
 # prints songs for which data will be output in a consistent format
@@ -280,6 +276,10 @@ def main():
     print('      you\'ll need to right-click paste instead!!)')
     print('-----------------------------------------------------------------------------')
     print()
+
+    # activate color for Windows systems
+    if platform.system() == 'Windows':
+        os.system('color')
 
     # prompt for client secret and spotify username
     secret = input('What\'s the ' + color('passphrase',LTYLLW) + '? ')
