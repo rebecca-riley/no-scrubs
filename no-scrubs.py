@@ -317,8 +317,8 @@ def main():
     try:
         # specify cache_path for Windows -- see spotipy issue #870 on github
         if platform.system() == 'Windows':
-            cache = str(os.path.dirname(os.path.abspath(__file__))) + '\\' +
-                        '.cache-' + username
+            cache = (str(os.path.dirname(os.path.abspath(__file__))) + '\\' +
+                         '.cache-' + username)
         else:
             cache = '.cache-' + username
 
