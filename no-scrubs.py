@@ -1,3 +1,5 @@
+#!/usr/bin/env python3 -Xutf8
+
 # No Scrubs: a command-line interface to scrub Spotify metadata from user libraries
 #            and consolidate it into tsv format
 # author: Rebecca Riley
