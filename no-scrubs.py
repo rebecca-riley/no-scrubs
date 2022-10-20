@@ -469,4 +469,9 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except Exception as e:
+        print('An unexpected error has occured.  Please contact me at rebecca.riley@uci.edu')
+        print('and include the following error message:')
+        print(e)
