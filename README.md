@@ -1,5 +1,5 @@
 # no-scrubs
-no-scrubs is an application which scrubs track metadata from Spotify playlists and liked songs and outputs it in csv format.
+no-scrubs is an application which scrapes track metadata from Spotify playlists and liked songs and outputs it in tsv format.
 
 ## Introduction
 Welcome to **No Scrubs**!  As a DJ for [KUCI Irvine](https://kuci.org), I spend a lot of time with my music collection.  I keep all my tracks in a spreadsheet so I can sort by genre, artist, release date, popularity, and label to streamline bringing you "the best mix of mellow, upbeat, and underground music on public radio."™  Manually inputting information for each track was incredibly tedious, so I decided to automate the process with a script to "scrub" my Spotify music library for metadata.  Thus, **No Scrubs** was born.
@@ -12,7 +12,7 @@ Host of [_The Rebelution_](https://facebook.com/rebelutionradio) at [WRVU Nashvi
 [facebook.com/rebelutionradio](https://facebook.com/rebelutionradio)
 
 ## Installation
-To install **No Scrubs**, you will need:
+To run **No Scrubs**, you will need:
 1.  no-scrubs.py
 2.  a Python installation
 3.  a Spotipy installation
@@ -41,11 +41,43 @@ The [Python website](https://www.python.org/downloads/) is your source for Pytho
 In order for Spotify to authorize you to use **No Scrubs**, you need a passphrase which I must generate.  To get the passphrase, please send me (rebeccariley@kuci.org) an email with the subject line 'passphrase' and I'll send it to you.
 
 ## Usage
-Mostly self-driven... but I'll add more notes later!
+#### Running no-scrubs.py
+To run the program, open a terminal in Mac/Linux or the Command Prompt in Windows.  Navigate to the folder in which you saved no-scrubs.py and run `python no-scrubs.py`.  If you are on Mac/Linux, your output files will be saved in your current directory (typically the same folder as no-scrubs.py; use `pwd` to check).  If you're on Windows, they will be saved in the same folder as no-scrubs.py.
+
+A typical terminal input might look like:
+```
+$ cd Downloads/no-scrubs/
+$ python no-scrubs.py
+```
+( Hint if you are new to terminals: You don't need to type the '$'. :] )
+
+If you're on Windows, you can run no-scrubs.py by double-clicking it.  This can be buggy, though -- if it doesn't work for some reason, try using Command Prompt instead.
+
+#### Passphrase & username
+Enter the passphrase you received from me (see above) and your Spotify username.  Your Spotify username is *not* the same as your display name.  To find your username, go to [spotify.com](https://open.spotify.com/), log in, and go to 'Account' in the settings.
+
+There is only an indirect way to determine your username on mobile.  In the Spotify app, go to Home > Settings (gear icon) > View Profile > three dots menu > Share.  Copy the link and paste it into a note.  The link will be in the format [https://open.spotify.com/user/[username]?...]()  Your username is everything after 'user/' and before '?'.
+
+#### Data output options
+1.  Liked songs and/or playlists
+    You can have **No Scrubs** output info for your liked songs ('liked'), your playlists ('playlists'), or both (hit enter).
+2.  Recently updated playlists
+    You can limit output to only recently updated playlists.  Enter a cutoff date in mm-dd-yyyy format, or hit enter to output info for all your playlists.
+3.  Recently updated songs in your playlists
+    You can limit output to only the recently updated songs in your playlists.  Enter a cutoff date in mm-dd-yyyy format, or press enter to output info for all the songs     in your playlists.
+4.  Playlists created by others
+    You can download song info for playlists you follow but did not create ('yes'), or only output playlists created by you (hit enter).
+5.  Recently added liked songs
+    You can limit output to only recently liked songs.  Enter a cutoff date in mm-dd-yyyy format, or press enter to output info for all your liked songs.
+
+#### Opening the output files
+**No Scrubs** generates a .tsv (tab separated value) file for each playlist it processes, as well as one for your liked songs.  These .tsv files can be opened by Excel or LibreOffice Calc.  To open in Excel, open a blank workbook and go to File > Open > Browse.  You may need to select 'All Files' in the dropdown for .tsv files to appeaar in the dialog box.  When you select your .tsv file, a Text Import Wizard will open.  The data in your .tsv file is **delimited** with **tabs**, and it **has headers**; choose the corresponding options.  Once you do so, all your data will be imported into Excel.  You can save it as an Excel file for easier reopening in the future.  If some of the cells display '#####', increase the size of the column.
+
+LibreOffice Calc has a similar import assistant; select tab delimited and your workbook will be correctly populated.
 
 ## Features
 #### Playlist info
-Data in the csv output file is listed as artist - track - album - label - genre.  You can copy and paste right into your email for weekly playlist submissions!
+Data in the tsv output file is listed as artist - track - album - label - genre.  You can copy and paste right into your email for weekly playlist submissions!
 
 #### A-play / B-play / grey area
 **No Scrubs** suggests whether a song in your library is A-play, B-play, or grey area.  The program makes this determination based on a combination of track popularity and overall artist popularity.  I hand-calibrated the popularity bounds based on A-play, B-play, and grey area songs from my own music collection; you can see those results [here](https://violetfreedom.kuci.org/post/663523339838603264/no-scrubs-popularity-calibration-during-the).  Your mileage may vary, so always check and adjust these suggestions for your personal use.
