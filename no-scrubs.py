@@ -11,7 +11,7 @@ import os
 import datetime
 import re
 import spotipy
-import spotipy.util
+import spotipy.oauth2
 import platform
 
 LOCAL_ZULU_OFFSET = -8  # represents PST (Los Angeles, CA time)
@@ -255,35 +255,24 @@ def write_out_audio_features(outfile,audio_feature):
 #### MAIN EXECUTION ####
 
 def main():
-    # introductory info: purpose of program and contact info
+
+    print('-------------------------------------------------------------------------------')
     print('Welcome to No Scrubs!  This program will output a tsv file containing all the ')
     print('info we\'re required to submit in our playlists (artist - track - album - label')
     print('- genre), plus some other metadata to help you keep your library organized')
-    print('(e.g. add date, OPI info, a preview link, track and artist popularity, and')
-    print('more).')
+    print('(e.g. add date, OPI info, a preview link, track & artist popularity, and more).')
     print()
     print('I made this primarily for myself, but I hope you can find it useful as well. ')
     print('Long live KUCI and independent music!')
-    print()
-    print('-----------------------------------------------------------------------------')
-    print('If you\'re using this program and you haven\'t obtained the passphrase from me,')
-    print('STOP.  Email rebecca.riley@uci.edu with the subject line \'passphrase\' and')
-    print('I\'ll send it to you.')
-    print('(n.b. Enter the passphrase *carefully*! If you don\'t, you\'ll get a nasty')
-    print('      error. Be aware that most terminals don\'t support Ctrl+V for paste -- ')
-    print('      you\'ll need to right-click paste instead!!)')
-    print('-----------------------------------------------------------------------------')
+    print('-------------------------------------------------------------------------------')
     print()
 
     # activate color for Windows systems
     if platform.system() == 'Windows':
         os.system('color')
 
-    # prompt for client secret and spotify username
-    secret = input('What\'s the ' + color('passphrase',LTYLLW) + '? ')
-    print()
-
-    username = input('What\'s your ' + color('Spotify username',LTRED) + '? ')
+    # prompt for spotify username
+    username = input('What\'s your ' + color('Spotify username',LTYLLW) + '? ')
     print()
 
     # liked songs, playlists, or both?
@@ -322,14 +311,15 @@ def main():
         else:
             cache = '.cache-' + username
 
-        token = spotipy.util.prompt_for_user_token(username,scope,
-        client_id='b7fc438dd1494d998c4eacfc3a78e0c4',
-        client_secret=secret,
-        redirect_uri='http://localhost:8888/callback',
-        cache_path=cache)
+        token = spotipy.oauth2.SpotifyPKCE(
+                client_id='b7fc438dd1494d998c4eacfc3a78e0c4',
+                redirect_uri='http://localhost:8888/callback',
+                scope=scope,cache_path=cache,username=username
+            ).get_access_token(check_cache=False)
+
     except: # catches all 'bad request' errors from spotify
-        print(color('Incorrect username or passphrase.  Please check your spelling ' +
-                    'and try again.',LTRED))
+        print(color('Unable to connect to Spotify.  Please check the spelling of ' +
+                    'your username and try again.',LTRED))
         sys.exit()
 
     # it would be unusual to fail here, but it's theoretically possible
