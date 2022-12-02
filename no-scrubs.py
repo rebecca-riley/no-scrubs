@@ -183,11 +183,11 @@ def process_list(playlist_or_liked_songs,list_name,spotify,cutoff_date,new_songs
 
 # write column labels to outfile
 def write_out_header(outfile):
-    outfile.write('Artist\tTrack\tAlbum\tLabel\tGenre\tSuggested KUCI status\t\
-                       Track Popularity\tArtist Popularity\tOPI?\tRelease date\t\
-                       Add date\t30s preview\t\
-                       Danceability\tEnergy\tTempo\tValence\tAcousticness\t\
-                       Instrumentalness\tSpeechiness\tLoudness\tLiveness\n')
+    outfile.write('Artist\tTrack\tAlbum\tLabel\tGenre\tSuggested KUCI status\t'\
+                  'Track Popularity\tArtist Popularity\tOPI?\tRelease date\t'\
+                  'Add date\t30s preview\t'\
+                  'Danceability\tEnergy\tTempo\tValence\tAcousticness\t'\
+                  'Instrumentalness\tSpeechiness\tLoudness\tLiveness\n')
 
 
 # write artist, track, album, label, and genre to outfile
