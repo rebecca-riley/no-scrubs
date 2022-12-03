@@ -16,7 +16,6 @@ To run **No Scrubs**, you will need:
 1.  no-scrubs.py
 2.  a Python installation
 3.  a Spotipy installation
-4.  the passphrase
 
 #### 1. no-scrubs.py
 You can obtain no-scrubs.py either by (a) cloning the [no-scrubs repository](https://github.com/rebecca-riley/no-scrubs) or (b) directly downloading it from GitHub.  I recommend the latter.
@@ -37,9 +36,6 @@ The [Python website](https://www.python.org/downloads/) is your source for Pytho
 
 **Windows:** If you installed Python through the Microsoft Store, open a terminal window and type `pip install spotipy`.  If you installed Python with an installer from [python.org](https://www.python.org/downloads/), type `py -m pip install spotipy` instead.
 
-#### 4. the passphrase
-In order for Spotify to authorize you to use **No Scrubs**, you need a passphrase which I must generate.  To get the passphrase, please send me (rebeccariley@kuci.org) an email with the subject line 'passphrase' and I'll send it to you.
-
 ## Usage
 #### Running no-scrubs.py
 To run the program, open a terminal in Mac/Linux or the Command Prompt in Windows.  Navigate to the folder in which you saved no-scrubs.py and run `python no-scrubs.py`.  If you are on Mac/Linux, your output files will be saved in your current directory (typically the same folder as no-scrubs.py; use `pwd` to check).  If you're on Windows, they will be saved in the same folder as no-scrubs.py.
@@ -53,8 +49,8 @@ $ python no-scrubs.py
 
 If you're on Windows, you can run no-scrubs.py by double-clicking it.  This can be buggy, though -- if it doesn't work for some reason, try using Command Prompt instead.
 
-#### Passphrase & username
-Enter the passphrase you received from me (see above) and your Spotify username.  Your Spotify username is *not* the same as your display name.  To find your username, go to [spotify.com](https://open.spotify.com/), log in, and go to 'Account' in the settings.
+#### What's my username?
+The first thing the program will prompt you for is your Spotify username.  Your username is *not* the same as your display name.  To find your username, go to [spotify.com](https://open.spotify.com/), log in, and go to 'Account' in the settings.
 
 There is only an indirect way to determine your username on mobile.  In the Spotify app, go to Home > Settings (gear icon) > View Profile > three dots menu > Share.  Copy the link and paste it into a note.  The link will be in the format [https://open.spotify.com/user/[username]?...]()  Your username is everything after 'user/' and before '?'.
 
