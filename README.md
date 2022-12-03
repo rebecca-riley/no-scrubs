@@ -55,15 +55,15 @@ The first thing the program will prompt you for is your Spotify username.  Your 
 There is only an indirect way to determine your username on mobile.  In the Spotify app, go to Home > Settings (gear icon) > View Profile > three dots menu > Share.  Copy the link and paste it into a note.  The link will be in the format [https://open.spotify.com/user/[username]?...]()  Your username is everything after 'user/' and before '?'.
 
 #### Data output options
-1.  Liked songs and/or playlists
+1.  Liked songs and/or playlists\
     You can have **No Scrubs** output info for your liked songs ('liked'), your playlists ('playlists'), or both (hit enter).
-2.  Recently updated playlists
+2.  Recently updated playlists\
     You can limit output to only recently updated playlists.  Enter a cutoff date in mm-dd-yyyy format, or hit enter to output info for all your playlists.
-3.  Recently updated songs in your playlists
+3.  Recently updated songs in your playlists\
     You can limit output to only the recently updated songs in your playlists.  Enter a cutoff date in mm-dd-yyyy format, or press enter to output info for all the songs     in your playlists.
-4.  Playlists created by others
+4.  Playlists created by others\
     You can download song info for playlists you follow but did not create ('yes'), or only output playlists created by you (hit enter).
-5.  Recently added liked songs
+5.  Recently added liked songs\
     You can limit output to only recently liked songs.  Enter a cutoff date in mm-dd-yyyy format, or press enter to output info for all your liked songs.
 
 #### Opening the output files
@@ -87,10 +87,15 @@ Exported data also includes a 30 second song preview (where available), metrics 
 <a name="ftnt1">*</a> There seems to be some evidence of this in a patent Spotify filed in 2020 for a "spoken words analyzer": https://www.digitalmusicnews.com/2020/12/17/spotify-spoken-words-analyzer-patent/.
 
 ## Future additions
-- [ ] Genre metadata  
-The vast majority of songs on Spotify do not have a published genre.  It's obvious from their annual "Wrapped" feature that Spotify does collect this information, but for whatever reason they've decided to keep it inaccessible via their API.[* ](#ftnt2)  I have a fancy idea to someday incorporate the genre data from one of my favorite websites ever, [Every Noise at Once](https://everynoise.com/), but no immediate implementation plans.  If someone would like to fork and attempt this, feel free.
+- [x] Genre metadata  
+~~The vast majority of songs on Spotify do not have a published genre.  It's obvious from their annual "Wrapped" feature that Spotify does collect this information, but for whatever reason they've decided to keep it inaccessible via their API.[* ](#ftnt2)  I have a fancy idea to someday incorporate the genre data from one of my favorite websites ever, [Every Noise at Once](https://everynoise.com/), but no immediate implementation plans.  If someone would like to fork and attempt this, feel free.~~\
+Spotify does make some genre data available, but it's for the _artist_, not the track.  This is the same data that Every Noise at Once uses.  While I would prefer track or album-specific genres, we'll take what we can get.  Artist genre data is now available in No Scrubs.
 
-- [ ] Fixing color commands for Windows terminals  
-no-scrubs.py contains commands to color some output text in Unix shells for readability.  This is output as gibberish in Windows terminals.  The program is still perfectly functional, but readability suffers.
+- [x] Fixing color commands for Windows terminals  
+~~no-scrubs.py contains commands to color some output text in Unix shells for readability.  This is output as gibberish in Windows terminals.  The program is still perfectly functional, but readability suffers.~~\
+See commit 6347f02 on 10/19/2022.
+
+- [ ] Improving popularity prediction  
+I'd like to refine the A/B/grey designations by calibrating popularity with more songs.  One weakness is that older, very well-known hits (think classic rock) register as less popular than they actually are since their play count is less recent or less peak-y.
 
 <a name="ftnt2">*</a> Genre is an "available" piece of metadata for tracks, but it always comes back blank.  This is a known bug of the Spotify API which its developers have declined to fix.
