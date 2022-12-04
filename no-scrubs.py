@@ -3,7 +3,7 @@
 # No Scrubs: a command-line interface to scrub Spotify metadata from user libraries
 #            and consolidate it into tsv format
 # author: Rebecca Riley
-# contact: rebecca.riley@uci.edu
+# contact: rebeccariley@kuci.org
 # date: December 02 2022
 
 import sys
@@ -325,7 +325,7 @@ def main():
     # it would be unusual to fail here, but it's theoretically possible
     if not token:
         print(color('Spotify connection failed. Please contact the administrator at ' +
-                    'rebecca.riley@uci.edu with a screenshot of the error.',LTRED))
+                    'rebeccariley@kuci.org with a screenshot of the error.',LTRED))
         sys.exit()
 
     # token is good and spotify contact was successful
@@ -431,7 +431,7 @@ def main():
     # fun stuff :)
     print('Thanks for using this script to build your music library!  If you have any ')
     print('further questions, comments, or concerns, you can email me at ')
-    print('rebecca.riley@uci.edu.')
+    print('rebeccariley@kuci.org.')
     print()
 
     # short term top artists
@@ -461,7 +461,7 @@ if __name__ == '__main__':
         main()
     except Exception as e:
         print(color('An unexpected error has occured. Please contact me at '
-                    'rebecca.riley@uci.edu ',LTRED))
+                    'rebeccariley@kuci.org ',LTRED))
         print(color('and include the following error message:',LTRED))
         print(e)
 
