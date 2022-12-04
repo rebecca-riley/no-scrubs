@@ -1,4 +1,4 @@
-# no-scrubs
+# [no-scrubs](https://www.youtube.com/watch?v=FrLequ6dUdM)
 no-scrubs is an application which scrapes track metadata from Spotify playlists and liked songs and outputs it in tsv format.
 
 ## Introduction
@@ -10,6 +10,8 @@ Long live independent music!
 _**Rebecca Riley**_  
 Host of [_The Rebelution_](https://facebook.com/rebelutionradio) at [WRVU Nashville](https://wrvu.org/) and [_Violet Freedom_](https://violetfreedom.kuci.org/) at [KUCI Irvine](https://kuci.org)  
 [facebook.com/rebelutionradio](https://facebook.com/rebelutionradio)
+
+P.S. Since I was just asked, "Who's TLC?" by an almost 30 year old, it appears I must explain.  Gen Z friends, I introduce you to peak 90s: https://www.youtube.com/watch?v=FrLequ6dUdM.
 
 ## Installation
 To run **No Scrubs**, you will need:
