@@ -37,7 +37,7 @@ The [Python website](https://www.python.org/downloads/) is your source for Pytho
 **Windows:** If you installed Python through the Microsoft Store, open a terminal window and type `pip install spotipy`.  If you installed Python with an installer from [python.org](https://www.python.org/downloads/), type `py -m pip install spotipy` instead.
 
 ## ‼️ Important note
-**No Scrubs** is currently registered with Spotify as being "in development."  This means that only 25 approved accounts can use **No Scrubs** at this time.  **If you wish to use No Scrubs, please send me an email with your Spotify username.** (See below for instructions on determining your username.)  If there is interest beyond 25 users, I will maintain a wait list that rotates on a weekly basis.  I've requested full approval so that all KUCI DJs can access the program and should hear back by early 2023.
+**No Scrubs** is currently registered with Spotify as being "in development."  This means that only 25 approved accounts can use **No Scrubs** at this time.  **If you wish to use No Scrubs, please send me an email with your name and the email associated with your Spotify account.**  If there is interest beyond 25 users, I will maintain a wait list that rotates on a weekly basis.  I've requested full approval so that all KUCI DJs can access the program and should hear back by early 2023.
 
 One additional note: As an app in development, there are some daily usage limits.  If **No Scrubs** suddenly freezes on you in the middle of running, wait 24 hours and try again.
 
