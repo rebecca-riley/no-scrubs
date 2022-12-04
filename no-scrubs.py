@@ -460,9 +460,24 @@ if __name__ == '__main__':
     try:
         main()
     except Exception as e:
-        print(color('An unexpected error has occured. Please contact me at '
+        # print(color('An unexpected error has occured. Please contact me at '
+        #             'rebeccariley@kuci.org ',LTRED))
+        # print(color('and include the following error message:',LTRED))
+        print()
+        print(color('You may be seeing this message because you have not been added '
+                    'as an approved ',LTYLLW))
+        print(color('user. Does the error say \'403: User not registered in the '
+                    'Developer Dashboard\'?',LTYLLW))
+        print()
+        print(color('If so, email rebeccariley@kuci.org with your name and the '
+                    'email associated with ',LTYLLW))
+        print(color('your Spotify account to be added to the list of approved '
+                    'users. ',LTYLLW))
+        print()
+        print(color('If you are seeing a different error, please contact me at '
                     'rebeccariley@kuci.org ',LTRED))
-        print(color('and include the following error message:',LTRED))
+        print(color('and include the following error message: ',LTRED))
+        print()
         print(e)
 
         if platform.system() == 'Windows':
