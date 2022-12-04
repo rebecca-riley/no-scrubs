@@ -460,6 +460,11 @@ if __name__ == '__main__':
     try:
         main()
     except Exception as e:
-        print('An unexpected error has occured.  Please contact me at rebecca.riley@uci.edu')
-        print('and include the following error message:')
+        print(color('An unexpected error has occured. Please contact me at '
+                    'rebecca.riley@uci.edu ',LTRED))
+        print(color('and include the following error message:',LTRED))
         print(e)
+
+        if platform.system() == 'Windows':
+            print()
+            input('Press any key to exit.')
