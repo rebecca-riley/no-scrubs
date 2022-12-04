@@ -86,7 +86,9 @@ You have the source code for **No Scrubs** right on your computer, so if somethi
 Data in the .tsv output file is listed as artist - track - album - label - genre.  You can copy and paste right into your email for weekly playlist submissions!
 
 #### A-play / B-play / grey area
-**No Scrubs** suggests whether a song in your library is A-play, B-play, or grey area.  The program makes this determination based on a combination of track popularity and overall artist popularity.  I hand-calibrated the popularity bounds based on A-play, B-play, and grey area songs from my own music collection; you can see those results [here](https://violetfreedom.kuci.org/post/663523339838603264/no-scrubs-popularity-calibration-during-the).  Your mileage may vary, so always check and adjust these suggestions for your personal use.
+**No Scrubs** suggests whether a song in your library is A-play, B-play, or grey area.  The program makes this determination based on a combination of track popularity and overall artist popularity.  I hand-calibrated the popularity bounds based on A-play, B-play, and grey area songs from my own music collection; you can see those results below.  Your mileage may vary, so always check and adjust these suggestions for your personal use.
+
+<img src="https://64.media.tumblr.com/60f45dd7797ca5e5de3742500fe50b96/95ded61b79b03a47-ec/s1280x1920/fc2712d35a8e88b0e0c666285809bbd839cb1c1e.jpg" alt="calibration-1" width="460"/>       <img src="https://64.media.tumblr.com/3bc87c6e773248307561aed186b43ad0/95ded61b79b03a47-66/s1280x1920/d3257262f9e2290a55c11aec608d75e674782e28.jpg" alt="calibration-2" width="480"/>
 
 #### OPI (Obscenity, Profanity, Indecency)
 **No Scrubs** indicates whether or not songs contain profanity, _as determined by Spotify._  ⚠️ **This identification is not always accurate.  Always personally verify that songs do not contain profanity before airing.** ⚠️  My testing of this feature suggests that Spotify uses AI to test for explicit lyrics, with human verification for more popular songs.[* ](#ftnt1)  In my experience, explicit tags are less accurate for less popular and foreign-language songs.  Proceed accordingly.
